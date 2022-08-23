@@ -8,14 +8,16 @@ import random
 import asyncio
 import csv
 
+# List that will hold the adhkar from the csv file
 dhikr = []
 
-with open('dhikr.csv', encoding="utf-8", newline='') as csvfile:
+# Opening the csv file that holds the adhkar
+with open('dhikr.csv', encoding="utf-8", newline='') as csvfile: # the file can be changed here in the first argument with dhikr.csv or dhikr_tr.csv or dhikr_trlit.csv
     adhkar = csv.reader(csvfile, delimiter=',', quotechar='|')
     dhikr = [i for i in adhkar]
     dhikr = dhikr[0]
 
-
+# Discord client class initialization
 class Client(discord.Client):
     async def on_ready(self):
         print('Logged into discord as', self.user)
@@ -24,8 +26,8 @@ class Client(discord.Client):
         if message.author == self.user:
             return
         while True:
-            await message.channel.send(dhikr[math.floor(random.random()*(len(dhikr)+1))])
+            await message.channel.send(dhikr[math.floor(random.random()*(len(dhikr)))]) # Sending a random dhikr from the file
             await asyncio.sleep(60)
 
 client = Client()
-client.run('API key')
+client.run('API key') # Enter your discord developer API key
