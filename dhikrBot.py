@@ -1,5 +1,6 @@
 # Dhikr Discord Bot by Abdulaziz AlSuwailim
 # بوت أذكار، كتابة عبدالعزيز السويلم
+# github.com/asuw1
 
 import discord
 import math
