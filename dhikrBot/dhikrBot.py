@@ -27,7 +27,7 @@ class Client(discord.Client):
             return
         while True:
             await message.channel.send(dhikr[math.floor(random.random()*(len(dhikr)))]) # Sending a random dhikr from the file
-            await asyncio.sleep(60)
+            await asyncio.sleep(60) # Time increment in seconds
 
 client = Client()
 client.run('API key') # Enter your discord developer API key
